@@ -1,0 +1,6 @@
+{
+    "require": {
+        "wamania/php-stemmer": "2.0",
+        "mbeurel/php-lemmatizer": "^0.2.0"
+    }
+}
