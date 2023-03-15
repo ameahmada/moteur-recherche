@@ -16,19 +16,21 @@
 </head>
 
 <body>
-    <div class="container" style="text-align: center; margin-top:10%; width:60%;">
-        <div class="row" style="width: 100%;">
-            <div class="col-12">
-                <h3>Moteur name</h3>
-            </div>
-            <div class="col-12 divRecherche">
-                <form class="col-12 align-center" action="#">
+    <div class="registerBg"> <br /></div>
+    <div class="container-fluid row m-0">
+        <div class="row col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-10 offset-xs-1" style="text-align: center; margin-top:10%;">
+            <div class="row col-12 col-sm-12 col-md-12">
+                <div class="col-12" style="margin-bottom: 10px;">
+                    <img src="image/logo.gif" width="130" />
+                </div>
+                <div class="col-12 divRecherche" id="divForm">
                     <input type="text" placeholder="cherche" name="requete" id="requete" oninput="loadPost();">
-                    <button id="btnRequete"><i class="fab fa-telegram-plane"></i></button>
-                </form>
-            </div>
-            <div id="result">
-                <!-- Resultat de la recherche -->
+                    <button id="btnRequete" onclick="transiter();"><i class="fab fa-telegram-plane"></i></button>
+
+                </div>
+                <div id="result">
+                    <!-- Resultat de la recherche -->
+                </div>
             </div>
         </div>
     </div>
@@ -64,26 +66,28 @@
                         console.log(i);
                         if (i == 0) {
                             contenu = `<div class="row col-sm-12 col-12" id="doc">
-                                        <div class="row col-sm-12 col-12 lien">
-                                            <a href=${articles[i]['url']} class="divdoc1">
-                                                <span class="titre">${articles[i]['titre']}</span>
-                                                <span class="score">${articles[i]['rang']}</span>
-                                            </a>
-                                        </div>
-                                    </div>`;
+                                            <div class="row col-sm-12 col-12 lien">
+                                                <a href=${articles[i]['url']} class="divdoc1">
+                                                    <span class="titre">${articles[i]['titre']}</span>
+                                                    <span class="score">${articles[i]['rang']}</span>
+                                                </a>
+                                            </div>
+                                        </div>`;
                         } else {
-                            contenu = `<hr><div class="row col-sm-12 col-12" id="doc">
-                                        <div class="row col-sm-12 col-12 lien">
-                                            <a href=${articles[i]['url']} class="divdoc1">
-                                                <span class="titre">${articles[i]['titre']}</span>
-                                                <span class="score">${articles[i]['rang']}</span>
-                                            </a>
-                                        </div>
-                                    </div>`;
+                            contenu = `<hr>
+                                        <div class="row col-sm-12 col-12" id="doc">
+                                            <div class="row col-sm-12 col-12 lien">
+                                                <a href=${articles[i]['url']} class="divdoc1">
+                                                    <span class="titre">${articles[i]['titre']}</span>
+                                                    <span class="score">${articles[i]['rang']}</span>
+                                                </a>
+                                            </div>
+                                        </div>`;
                         }
 
                         //contenu = `<p>${data.articles[i]['description']} </p>`;
                         $("#result").append(contenu);
+                        $("#result").css("visibility", "visible");
                         if (i === 10) {
                             break; // sortir de la boucle prématurément si i est égal à 5
                         }
@@ -102,7 +106,16 @@
     // Reactualiser la page tous les 30 secondes 
     //var refresh = setInterval(loadPost, 30 * 1000);
 
-    //loadPost();
+    function transiter() {
+        var btn = document.querySelector("#btnRequete");
+        var req = document.querySelector("#requete");
+
+        //$(location).attr('href','resultat.php');
+        if (req.value != '') {
+            var requestVal = 'resultat.php?' + "requete=" + req.value;
+            window.location.href = requestVal;
+        }
+    }
 </script>
 
 </html>

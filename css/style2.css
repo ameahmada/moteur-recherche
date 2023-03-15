@@ -1,13 +1,10 @@
 body {
-    background: -webkit-linear-gradient(left, burlywood, rgba(255, 255, 255, 0.39), rgba(255, 136, 0, 0.342));
-    margin : 0;
+    margin: 0;
     padding: 0;
 }
 
 .registerBg {
-    background-image: url("../image/bg.png");
-    background-repeat: repeat;
-    background-size: auto;
+    background-color: whitesmoke;
     position: absolute;
     margin: 0;
     padding: 0;
@@ -23,7 +20,7 @@ body {
     /*backdrop-filter: blur(15px);*/
 }
 
-.divRecherche{
+.divRecherche {
     height: 40px;
     width: 100%;
     margin: 0;
@@ -35,7 +32,7 @@ body {
     background: rgba(255, 255, 255, 0.5);
 }
 
-#requete{
+#requete {
     border: none;
     background: none;
     height: 95%;
@@ -44,13 +41,15 @@ body {
     position: absolute;
     left: 2%;
     font-weight: 300;
-    font-family: 'Roboto Condensed' ,Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
     color: rgb(22, 22, 22);
 }
-#requete:focus{
+
+#requete:focus {
     outline: transparent;
 }
-#btnRequete{
+
+#btnRequete {
     background: none;
     border-left: 1px solid black;
     border-bottom: 0.5px solid black;
@@ -67,7 +66,8 @@ body {
     right: 0;
     top: 0;
 }
-#result{
+
+#result {
     background-color: rgba(255, 255, 255);
     font-size: 15px;
     font-weight: 100;
@@ -77,16 +77,19 @@ body {
     padding: 1px 0 1px 0;
     visibility: hidden;
 }
-#doc{
+
+#doc {
     margin: 0;
     overflow: hidden;
-    height: 40px;
+    height: auto;
     margin: 1px 0 1px 0;
 }
-#doc .lien{
+
+#doc .lien {
     width: 100%;
 }
-#doc .lien .divdoc1{
+
+#doc .lien .divdoc1 {
     position: relative;
     height: 100%;
     width: 100%;
@@ -96,12 +99,14 @@ body {
     align-items: center;
     text-align: center;
 }
-#doc .lien .divdoc1 .titre{
+
+#doc .lien .divdoc1 .titre {
     position: absolue;
     width: 60%;
     left: 0;
     text-align: left;
 }
+
 #doc .lien .divdoc1 .score {
     position: absolue;
     width: 35%;
@@ -109,10 +114,11 @@ body {
     color: red;
     text-align: right;
 }
-#doc .lien{
+
+#doc .lien {
     height: 100%;
 }
 
-hr{
+hr {
     margin: 1% 2% 1% 2%;
 }

@@ -13,7 +13,7 @@ $stemmer = StemmerFactory::create('french');
 
 $jsonString = null;
 // Traitements de la requete
-$requete = "Depuis hier lundi vers 20 heures par mégaphone,La pandémie du coronavirus a fini de basculer aux impacts négatifs. L’armée sénégalaise tire sur des enfants à casamance";
+//$requete = "Depuis hier lundi vers 20 heures par mégaphone,La pandémie du coronavirus a fini de basculer aux impacts négatifs. L’armée sénégalaise tire sur des enfants à casamance";
 
 // Recuperer de la requete de recherche
 if(isset($_GET['requete']) and !empty($_GET['requete'])){
@@ -96,7 +96,6 @@ if(isset($_GET['requete']) and !empty($_GET['requete'])){
             for ($i = 0; $i < 10; $i++) {
                 // Initialisation des nouveaux scores PageRank pour chaque nœud
                 $newPageRank = array_fill(0, $numNodes, 0);
-
                 // Boucle à travers chaque nœud dans le graphe
                 for ($j = 0; $j < $numNodes; $j++) {
                     // Boucle à travers les termes
@@ -106,11 +105,9 @@ if(isset($_GET['requete']) and !empty($_GET['requete'])){
                             $newPageRank[$j] += $pageRank[$j] / count(array_keys($matrice[$j]));
                         }
                     }
-
                     // Application du facteur d'amortissement et ajout du facteur de saut aléatoire
                     $newPageRank[$j] = (1 - $dampingFactor) / $numNodes + $dampingFactor * $newPageRank[$j];
                 }
-
                 // Mise à jour des scores PageRank pour chaque nœud
                 $pageRank = $newPageRank;
             }
@@ -145,7 +142,7 @@ if(isset($_GET['requete']) and !empty($_GET['requete'])){
             echo $jsonString;
         }
 
-    }{
+    }else{
         echo $jsonString;
     }
     
